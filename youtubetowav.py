@@ -30,5 +30,18 @@ with yt_dlp.YoutubeDL(ydl_opts) as ydl:
     else:
         download_from_url(args[0])
 
+def main(urls):
+    for url in urls:
+        download_from_url(url)
+        print(f"Downloaded and converted {url} to WAV.")
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    if len(args) == 0:
+        url = input("Enter YouTube URL: ")
+        main([url])
+    else:
+        main(args)
+
 
 
